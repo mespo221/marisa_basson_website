@@ -1,0 +1,1636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marisa Esposito, Bassoonist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #f5f0e8;
+    --dark: #1a1a18;
+    --gold: #b08d57;
+    --gold-light: #d4b483;
+    --mid: #4a4640;
+    --light-text: #7a7470;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--dark);
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.02em;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 28px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(245, 240, 232, 0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(176, 141, 87, 0.15);
+    transition: padding 0.3s ease;
+  }
+
+  .nav-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--dark);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 90px;
+  }
+
+  .hero-image-wrap {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    filter: grayscale(8%) contrast(1.02);
+    animation: fadeIn 1.2s ease forwards;
+  }
+
+  .hero-image-wrap::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, transparent 70%, var(--cream));
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 80px 80px 60px;
+    animation: slideUp 1s ease 0.3s both;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+  }
+
+  .hero-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3.5rem, 6vw, 5.5rem);
+    font-weight: 300;
+    line-height: 1.0;
+    color: var(--dark);
+    margin-bottom: 16px;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--mid);
+    margin-bottom: 40px;
+    letter-spacing: 0.05em;
+  }
+
+  .hero-quote {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: var(--light-text);
+    max-width: 380px;
+    margin-bottom: 48px;
+    font-style: italic;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    padding: 14px 36px;
+    background: var(--dark);
+    color: var(--cream);
+    text-decoration: none;
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .btn-primary:hover { background: var(--gold); transform: translateY(-1px); }
+
+  .btn-secondary {
+    display: inline-block;
+    padding: 14px 0;
+    color: var(--mid);
+    text-decoration: none;
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--gold);
+    transition: color 0.2s;
+  }
+
+  .btn-secondary:hover { color: var(--gold); }
+
+  /* SECTION STYLES */
+  section {
+    padding: 100px 60px;
+  }
+
+  .section-label {
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 300;
+    line-height: 1.15;
+    color: var(--dark);
+    margin-bottom: 48px;
+  }
+
+  .gold-line {
+    width: 60px;
+    height: 1px;
+    background: var(--gold);
+    margin-bottom: 40px;
+  }
+
+  /* STATS BAR */
+  .stats {
+    background: var(--dark);
+    padding: 60px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    text-align: center;
+  }
+
+  .stat-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    font-weight: 300;
+    color: var(--gold-light);
+    display: block;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .stat-label {
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(245, 240, 232, 0.5);
+  }
+
+  /* BIO */
+  #bio {
+    background: var(--cream);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .bio-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.8fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .bio-sidebar {}
+
+  .bio-sidebar-item {
+    margin-bottom: 32px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid rgba(176, 141, 87, 0.2);
+  }
+
+  .bio-sidebar-item:last-child { border-bottom: none; }
+
+  .sidebar-label {
+    font-size: 0.55rem;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+
+  .sidebar-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    color: var(--dark);
+    line-height: 1.5;
+  }
+
+  .bio-text p {
+    font-size: 1rem;
+    line-height: 1.9;
+    color: var(--mid);
+    margin-bottom: 24px;
+  }
+
+  /* HIGHLIGHTS */
+  #highlights {
+    background: #f0ebe0;
+  }
+
+  .highlights-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: rgba(176, 141, 87, 0.15);
+  }
+
+  .highlight-card {
+    background: #f0ebe0;
+    padding: 48px 40px;
+    transition: background 0.2s;
+  }
+
+  .highlight-card:hover { background: var(--cream); }
+
+  .highlight-icon {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    color: var(--gold);
+    margin-bottom: 16px;
+    font-style: italic;
+  }
+
+  .highlight-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--dark);
+    margin-bottom: 16px;
+  }
+
+  .highlight-text {
+    font-size: 0.85rem;
+    line-height: 1.8;
+    color: var(--light-text);
+  }
+
+  /* RECORDINGS */
+  #recordings {
+    background: var(--dark);
+    color: var(--cream);
+  }
+
+  .recordings-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  #recordings .section-label { color: var(--gold-light); }
+  #recordings .section-title { color: var(--cream); }
+  #recordings .gold-line { background: var(--gold-light); }
+
+  .recordings-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+
+  .recording-card {
+    border: 1px solid rgba(176, 141, 87, 0.25);
+    padding: 40px;
+    transition: border-color 0.2s;
+  }
+
+  .recording-card:hover { border-color: var(--gold); }
+
+  .recording-label {
+    font-size: 0.55rem;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 12px;
+  }
+
+  .recording-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 300;
+    color: var(--cream);
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+
+  .recording-desc {
+    font-size: 0.82rem;
+    color: rgba(245, 240, 232, 0.55);
+    line-height: 1.7;
+  }
+
+  /* TEACHING */
+  #teaching {
+    background: var(--cream);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .teaching-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .teaching-text p {
+    font-size: 1rem;
+    line-height: 1.9;
+    color: var(--mid);
+    margin-bottom: 24px;
+  }
+
+  .music-with-marisa {
+    background: var(--dark);
+    padding: 40px;
+    color: var(--cream);
+  }
+
+  .mwm-label {
+    font-size: 0.55rem;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .mwm-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    color: var(--cream);
+    margin-bottom: 16px;
+    font-style: italic;
+  }
+
+  .mwm-photo {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    margin-bottom: 24px;
+    filter: grayscale(10%);
+  }
+
+  .mwm-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--cream);
+    line-height: 1.5;
+    margin-bottom: 20px;
+    border-left: 2px solid var(--gold);
+    padding-left: 16px;
+  }
+
+  .mwm-text {
+    font-size: 0.85rem;
+    line-height: 1.8;
+    color: rgba(245, 240, 232, 0.6);
+    margin-bottom: 24px;
+  }
+
+  .mwm-badge {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--cream);
+    padding: 8px 18px;
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  /* MEDIA SECTION */
+  .media-block {
+    margin-bottom: 72px;
+  }
+
+  .media-block-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    font-style: italic;
+    letter-spacing: 0.08em;
+    color: var(--gold);
+    margin-bottom: 28px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(176, 141, 87, 0.2);
+  }
+
+  .stream-links {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+  }
+
+  .stream-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 9px 18px;
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+
+  .stream-spotify {
+    background: #1DB954;
+    color: #fff;
+    border-color: #1DB954;
+  }
+  .stream-spotify:hover { background: #17a349; border-color: #17a349; }
+
+  .stream-apple {
+    background: transparent;
+    color: var(--dark);
+    border-color: rgba(176, 141, 87, 0.4);
+  }
+  .stream-apple:hover { border-color: var(--gold); color: var(--gold); }
+
+  .audio-embed-placeholder {
+    margin-top: 20px;
+    background: rgba(176, 141, 87, 0.06);
+    border: 1px dashed rgba(176, 141, 87, 0.35);
+    padding: 24px;
+    min-height: 80px;
+  }
+
+  .audio-embed-placeholder .embed-label {
+    font-size: 0.55rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+
+  .audio-embed-placeholder .embed-instructions {
+    font-size: 0.78rem;
+    color: var(--light-text);
+    line-height: 1.6;
+  }
+
+  .audio-embed-placeholder code {
+    font-size: 0.72rem;
+    background: rgba(176, 141, 87, 0.1);
+    padding: 2px 6px;
+    font-family: monospace;
+    color: var(--gold);
+  }
+
+  /* STANDALONE TRACK */
+  .standalone-track {
+    border: 1px solid rgba(176, 141, 87, 0.2);
+    padding: 20px;
+    background: rgba(176, 141, 87, 0.03);
+  }
+
+  .track-info {
+    margin-bottom: 12px;
+  }
+
+  .track-label {
+    font-size: 0.5rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .track-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--dark);
+    margin-bottom: 3px;
+  }
+
+  .track-performer {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.85rem;
+    font-style: italic;
+    color: var(--light-text);
+  }
+
+  .track-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--dark);
+    margin-bottom: 6px;
+  }
+
+  .track-performer {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.95rem;
+    font-style: italic;
+    color: var(--light-text);
+  }
+
+  /* VIDEO GRID */
+  .video-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .video-embed-wrap {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .video-embed-wrap iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  .video-card { }
+
+  .video-embed-placeholder {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    background: var(--dark);
+    border: 1px dashed rgba(176, 141, 87, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    overflow: hidden;
+  }
+
+  .video-embed-placeholder .play-icon {
+    font-size: 2rem;
+    color: rgba(176, 141, 87, 0.4);
+  }
+
+  .video-embed-placeholder .embed-label {
+    font-size: 0.55rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(245, 240, 232, 0.4);
+  }
+
+  .video-embed-placeholder .embed-instructions {
+    font-size: 0.68rem;
+    color: rgba(245, 240, 232, 0.25);
+    text-align: center;
+    padding: 0 16px;
+    line-height: 1.6;
+  }
+
+  .video-embed-placeholder code {
+    font-size: 0.65rem;
+    color: rgba(176, 141, 87, 0.5);
+    font-family: monospace;
+  }
+
+  .video-caption {
+    margin-top: 12px;
+    font-size: 0.72rem;
+    font-style: italic;
+    color: var(--light-text);
+    font-family: 'Cormorant Garamond', serif;
+  }
+
+  /* PRESS */
+  #press {
+    background: var(--dark);
+  }
+
+  .press-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  #press .section-label { color: var(--gold-light); }
+  #press .section-label::after { background: var(--gold); }
+  #press .section-title { color: var(--cream); }
+
+  .press-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 2px;
+    margin-top: 8px;
+  }
+
+  .press-card {
+    display: block;
+    background: rgba(245, 240, 232, 0.04);
+    border: 1px solid rgba(176, 141, 87, 0.15);
+    padding: 36px 32px;
+    text-decoration: none;
+    transition: background 0.3s, border-color 0.3s;
+    cursor: pointer;
+  }
+
+  .press-card:hover {
+    background: rgba(176, 141, 87, 0.08);
+    border-color: rgba(176, 141, 87, 0.4);
+  }
+
+  .press-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+
+  .press-outlet {
+    font-size: 0.55rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .press-date {
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    color: rgba(245, 240, 232, 0.3);
+  }
+
+  .press-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--cream);
+    line-height: 1.4;
+    margin-bottom: 14px;
+  }
+
+  .press-excerpt {
+    font-size: 0.82rem;
+    line-height: 1.8;
+    color: rgba(245, 240, 232, 0.5);
+    margin-bottom: 24px;
+  }
+
+  .press-read-more {
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border-bottom: 1px solid rgba(176, 141, 87, 0.3);
+    padding-bottom: 2px;
+    transition: border-color 0.2s;
+  }
+
+  .press-card:hover .press-read-more {
+    border-color: var(--gold);
+  }
+
+  .mwm-host {
+    margin-top: 28px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(245, 240, 232, 0.12);
+  }
+
+  .mwm-host-label {
+    font-size: 0.5rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(245, 240, 232, 0.4);
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .mwm-host-link {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--gold-light);
+    text-decoration: none;
+    transition: color 0.2s;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .mwm-host-link:hover { color: var(--cream); }
+
+  .mwm-host-desc {
+    font-size: 0.75rem;
+    color: rgba(245, 240, 232, 0.4);
+    line-height: 1.6;
+  }
+
+  .mwm-signup {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 28px;
+    background: var(--gold);
+    color: var(--cream);
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .mwm-signup:hover {
+    background: var(--gold-light);
+  }
+
+  /* CONTACT */
+  #contact {
+    background: #f0ebe0;
+  }
+
+  .contact-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .contact-text {
+    font-size: 1rem;
+    line-height: 1.9;
+    color: var(--mid);
+    margin-bottom: 40px;
+  }
+
+  .contact-details { margin-top: 40px; }
+
+  .contact-item {
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(176, 141, 87, 0.2);
+  }
+
+  .contact-item:last-child { border-bottom: none; }
+
+  .contact-item-label {
+    font-size: 0.55rem;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 6px;
+    display: block;
+  }
+
+  .contact-item-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: var(--dark);
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .form-field label {
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--mid);
+  }
+
+  .form-field input,
+  .form-field textarea {
+    background: var(--cream);
+    border: 1px solid rgba(176, 141, 87, 0.3);
+    padding: 14px 18px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.9rem;
+    color: var(--dark);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .form-field input:focus,
+  .form-field textarea:focus { border-color: var(--gold); }
+
+  .form-field textarea { resize: vertical; min-height: 120px; }
+
+  .form-submit {
+    padding: 16px 40px;
+    background: var(--dark);
+    color: var(--cream);
+    border: none;
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s;
+    align-self: flex-start;
+  }
+
+  .form-submit:hover { background: var(--gold); }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark);
+    padding: 40px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(245, 240, 232, 0.5);
+  }
+
+  .footer-instagram {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(245, 240, 232, 0.5);
+    text-decoration: none;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    transition: color 0.2s;
+  }
+
+  .footer-instagram:hover { color: var(--gold); }
+
+  .footer-copy {
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    color: rgba(245, 240, 232, 0.3);
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+
+  /* GALLERY */
+  #gallery {
+    background: #1a1a18;
+    padding: 100px 60px;
+  }
+
+  #gallery .section-label { color: var(--gold-light); }
+  #gallery .section-label::after { background: var(--gold); }
+  #gallery .section-title { color: var(--cream); }
+
+  .gallery-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px;
+    margin-top: 8px;
+  }
+
+  .gallery-grid .g-tall {
+    grid-row: span 2;
+  }
+
+  .gallery-item {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    background: #111;
+    aspect-ratio: 4/3;
+  }
+
+  .gallery-grid .g-tall {
+    aspect-ratio: unset;
+  }
+
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease, filter 0.4s ease;
+    filter: grayscale(20%);
+  }
+
+  .gallery-item:hover img {
+    transform: scale(1.04);
+    filter: grayscale(0%);
+  }
+
+  .gallery-item-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(26,26,24,0.7) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    display: flex;
+    align-items: flex-end;
+    padding: 16px;
+  }
+
+  .gallery-item:hover .gallery-item-overlay {
+    opacity: 1;
+  }
+
+  .gallery-item-caption {
+    font-size: 0.65rem;
+    color: rgba(245,240,232,0.85);
+    letter-spacing: 0.05em;
+    font-style: italic;
+    font-family: 'Cormorant Garamond', serif;
+    line-height: 1.4;
+  }
+
+  /* LIGHTBOX */
+  .lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(10,10,10,0.95);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 40px;
+  }
+
+  .lightbox.active {
+    display: flex;
+  }
+
+  .lightbox-img-wrap {
+    position: relative;
+    max-width: 90vw;
+    max-height: 80vh;
+  }
+
+  .lightbox img {
+    max-width: 90vw;
+    max-height: 78vh;
+    object-fit: contain;
+    display: block;
+  }
+
+  .lightbox-caption {
+    margin-top: 16px;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 0.9rem;
+    color: rgba(245,240,232,0.55);
+    text-align: center;
+    letter-spacing: 0.05em;
+  }
+
+  .lightbox-close {
+    position: fixed;
+    top: 24px;
+    right: 32px;
+    background: none;
+    border: none;
+    color: rgba(245,240,232,0.6);
+    font-size: 2rem;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.2s;
+    z-index: 1001;
+  }
+
+  .lightbox-close:hover { color: var(--gold); }
+
+  .lightbox-prev,
+  .lightbox-next {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: rgba(245,240,232,0.5);
+    font-size: 2.5rem;
+    cursor: pointer;
+    padding: 16px;
+    transition: color 0.2s;
+    z-index: 1001;
+  }
+
+  .lightbox-prev:hover,
+  .lightbox-next:hover { color: var(--gold); }
+
+  .lightbox-prev { left: 16px; }
+  .lightbox-next { right: 16px; }
+
+
+  .gallery-event-divider {
+    height: 1px;
+    background: rgba(176,141,87,0.2);
+    margin: 48px 0 40px;
+  }
+
+  .gallery-grid-enescu {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .gallery-grid-enescu .g-wide {
+    grid-column: span 2;
+    aspect-ratio: 16/9;
+  }
+
+  .gallery-grid-enescu .gallery-item {
+    aspect-ratio: 4/3;
+  }
+
+  @media (max-width: 900px) {
+    .gallery-grid-enescu { grid-template-columns: 1fr; }
+    .gallery-grid-enescu .g-wide { grid-column: span 1; aspect-ratio: 4/3; }
+  }
+  .gallery-event-tag {
+    display: inline-block;
+    font-size: 0.55rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid rgba(176,141,87,0.3);
+    padding: 6px 14px;
+    margin-bottom: 32px;
+  }
+
+  @media (max-width: 900px) {
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .gallery-grid .g-tall { aspect-ratio: 4/3; grid-row: span 1; }
+    #gallery { padding: 70px 30px; }
+  }
+
+  /* LANGUAGE TOGGLE */
+  .lang-toggle {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-left: 32px;
+  }
+
+  .lang-btn {
+    background: none;
+    border: none;
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--light-text);
+    cursor: pointer;
+    padding: 4px 6px;
+    transition: color 0.2s;
+  }
+
+  .lang-btn.active {
+    color: var(--gold);
+    border-bottom: 1px solid var(--gold);
+  }
+
+  .lang-btn:hover { color: var(--dark); }
+
+  .lang-sep {
+    font-size: 0.55rem;
+    color: var(--light-text);
+    opacity: 0.4;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 20px 30px; }
+    .nav-links { gap: 24px; }
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-image-wrap { height: 70vw; }
+    .hero-image-wrap::after { background: linear-gradient(to top, var(--cream), transparent); }
+    .hero-content { padding: 40px 30px 60px; }
+    section { padding: 70px 30px; }
+    .stats { grid-template-columns: repeat(2, 1fr); padding: 50px 30px; }
+    .bio-grid, .highlights-grid, .recordings-grid, .teaching-grid, .contact-inner, .video-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    footer { flex-direction: column; gap: 12px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-name">Marisa Esposito</a>
+  <ul class="nav-links">
+    <li><a href="#bio"><span data-en="Biography" data-de="Biografie">Biography</span></a></li>
+    <li><a href="#recordings"><span data-en="Media" data-de="Medien">Media</span></a></li>
+    <li><a href="#highlights"><span data-en="Highlights" data-de="Höhepunkte">Highlights</span></a></li>
+    <li><a href="#gallery"><span data-en="Gallery" data-de="Galerie">Gallery</span></a></li>
+    <li><a href="#teaching"><span data-en="Teaching" data-de="Unterricht">Teaching</span></a></li>
+    <li><a href="#press"><span data-en="Press" data-de="Presse">Press</span></a></li>
+    <li><a href="#contact"><span data-en="Contact" data-de="Kontakt">Contact</span></a></li>
+  </ul>
+  <div class="lang-toggle">
+    <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+    <span class="lang-sep">|</span>
+    <button class="lang-btn" id="btn-de" onclick="setLang('de')">DE</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+  <div class="hero-image-wrap">
+    <img src="images/hero.jpg" alt="Marisa Esposito, Bassoonist">
+  </div>
+  <div class="hero-content">
+    <span class="hero-eyebrow">Principal Bassoonist · Würth Philharmoniker</span>
+    <h1 class="hero-name">Marisa<br>Esposito</h1>
+    <p class="hero-title">Bassoonist</p>
+    <p class="hero-quote">"Bassoonist. Teacher. Believer in music for all...<br>from the concert hall to the living room floor."</p>
+    <div class="hero-cta">
+      <a href="#bio" class="btn-primary">Biography</a>
+      <a href="#contact" class="btn-secondary">Get in Touch</a>
+    </div>
+  </div>
+</section>
+
+<section id="bio">
+  <div class="bio-grid reveal">
+    <div class="bio-sidebar">
+      <span class="section-label"><span data-en="About" data-de="Über mich">About</span></span>
+      <div class="bio-sidebar-item">
+        <span class="sidebar-label"><span data-en="Current Position" data-de="Aktuelle Stelle">Current Position</span></span>
+        <span class="sidebar-value"><span data-en="Principal Bassoonist" data-de="Solofagottistin">Principal Bassoonist</span><br>Würth Philharmoniker</span>
+      </div>
+      <div class="bio-sidebar-item">
+        <span class="sidebar-label"><span data-en="Based in" data-de="Wohnort">Based in</span></span>
+        <span class="sidebar-value">Baden-Württemberg,<br>Germany</span>
+      </div>
+      <div class="bio-sidebar-item">
+        <span class="sidebar-label"><span data-en="Education" data-de="Ausbildung">Education</span></span>
+        <span class="sidebar-value">SUNY Fredonia · BM<br>Cleveland Institute · MM, AD<br>HDMK Stuttgart · Contact Study</span>
+      </div>
+      <div class="bio-sidebar-item">
+        <span class="sidebar-label"><span data-en="Teachers" data-de="Lehrer">Teachers</span></span>
+        <span class="sidebar-value">Laura Koepke · Barrick Stees · Marc Engelhardt</span>
+      </div>
+      <div class="bio-sidebar-item">
+        <span class="sidebar-label"><span data-en="Other Mentors" data-de="Weitere Mentoren">Other Mentors</span></span>
+        <span class="sidebar-value">Ole Kristian Dahl · Frank Lehman · Christof Bambauch</span>
+      </div>
+    </div>
+    <div class="bio-text">
+      <span class="section-label"><span data-en="Biography" data-de="Biografie">Biography</span></span>
+      <h2 class="section-title"><span data-en="An Artist Shaped by Two Continents" data-de="Eine Künstlerin, geprägt von zwei Kontinenten">An Artist Shaped<br>by Two Continents</span></h2>
+      <div class="gold-line"></div>
+      <p><span data-en="Marisa Esposito is an American bassoonist currently based in Baden-Württemberg, Germany, where she serves as Principal Bassoonist of the Würth Philharmoniker, a position she has held since winning the audition in March 2022." data-de="Marisa Esposito ist eine amerikanische Fagottistin, die derzeit in Baden-Württemberg lebt, wo sie als Solofagottistin des Würth Philharmoniker tätig ist – eine Position, die sie seit dem gewonnenen Probespiel im März 2022 innehat.">Marisa Esposito is an American bassoonist currently based in Baden-Württemberg, Germany, where she serves as Principal Bassoonist of the Würth Philharmoniker, a position she has held since winning the audition in March 2022.</span></p>
+      <p><span data-en="Her musical journey began at the State University of New York at Fredonia under the guidance of Laura Koepke, where she earned her Bachelor of Music. Driven by a perpetual wanderlust and a desire to hone the beautiful craft of musical creation, she went on to complete a Master of Music and an Artist Diploma at the Cleveland Institute of Music under Barrick Stees, former assistant principal bassoonist of the Cleveland Orchestra. That same spirit led her to relocate to Germany in September 2021 to pursue post-graduate studies with Marc Engelhardt at the Hochschule für Musik und Darstellende Kunst Stuttgart. She has also taken additional lessons with Ole Kristian Dahl in Mannheim." data-de="Ihre musikalische Ausbildung begann an der State University of New York at Fredonia bei Laura Koepke, wo sie ihren Bachelor of Music erwarb. Getrieben von der Überzeugung, dass man als Musikerin nie aufhört zu lernen, absolvierte sie anschließend einen Master of Music und ein Artist Diploma am Cleveland Institute of Music bei Barrick Stees, dem Solofagottisten des Cleveland Orchestra. Derselbe Geist bewog sie, im September 2021 nach Deutschland zu ziehen, um ihr Postgraduiertenstudium bei Marc Engelhardt und Ole Kristian Dahl an der Hochschule für Musik und Darstellende Kunst Stuttgart fortzusetzen.">Her musical journey began at the State University of New York at Fredonia under the guidance of Laura Koepke, where she earned her Bachelor of Music. Driven by a perpetual wanderlust and a desire to hone the beautiful craft of musical creation, she went on to complete a Master of Music and an Artist Diploma at the Cleveland Institute of Music under Barrick Stees, former assistant principal bassoonist of the Cleveland Orchestra. That same spirit led her to relocate to Germany in September 2021 to pursue post-graduate studies with Marc Engelhardt at the Hochschule für Musik und Darstellende Kunst Stuttgart. She has also taken additional lessons with Ole Kristian Dahl in Mannheim.</span></p>
+      <p><span data-en="With the Würth Philharmoniker, Marisa performs on some of Europe's most celebrated stages, including the Festspielhaus Baden-Baden, the Philharmonie Berlin, the Festspielhaus Salzburg, and the Enescu Music Festival. She has performed under the baton of conductors including Christian Thielemann, Kent Nagano, Charles Dutoit, and Karina Canellakis, and alongside soloists such as Anne-Sophie Mutter, Hélène Grimaud, and Anna Netrebko." data-de="Mit dem Würth Philharmoniker tritt Marisa auf einigen der renommiertesten Bühnen Europas auf, darunter das Festspielhaus Baden-Baden, die Philharmonie Berlin, das Festspielhaus Salzburg und das Enescu Music Festival. Sie musizierte unter der Leitung von Dirigenten wie Christian Thielemann, Kent Nagano, Charles Dutoit und Karina Canellakis sowie neben Solisten wie Anne-Sophie Mutter, Hélène Grimaud und Anna Netrebko.">With the Würth Philharmoniker, Marisa performs on some of Europe's most celebrated stages, including the Festspielhaus Baden-Baden, the Philharmonie Berlin, the Festspielhaus Salzburg, and the Enescu Music Festival. She has performed under the baton of conductors including Christian Thielemann, Kent Nagano, Charles Dutoit, and Karina Canellakis, and alongside soloists such as Anne-Sophie Mutter, Hélène Grimaud, and Anna Netrebko.</span></p>
+      <p><span data-en="Marisa appears on two commercial recordings: Brahms, Schubert &amp; Others: Orchestral Songs, featuring Thomas Hampson, the Würth Philharmoniker, and conductor Claudio Vandelli, released by Hänssler Records; and Vali: The Being of Love with the Württembergische Philharmonie Reutlingen, released by Naxos." data-de="Marisa ist auf zwei kommerziellen Aufnahmen zu hören: Brahms, Schubert &amp; Others: Orchestral Songs, mit Thomas Hampson, dem Würth Philharmoniker und Dirigent Claudio Vandelli, erschienen bei Hänssler Records; sowie Vali: The Being of Love mit der Württembergischen Philharmonie Reutlingen, erschienen bei Naxos.">Marisa appears on two commercial recordings: <em>Brahms, Schubert &amp; Others: Orchestral Songs</em>, featuring Thomas Hampson, the Würth Philharmoniker, and conductor Claudio Vandelli, released by Hänssler Records; and <em>Vali: The Being of Love</em> with the Württembergische Philharmonie Reutlingen, released by Naxos.</span></p>
+    </div>
+  </div>
+</section>
+
+<section id="recordings">
+  <div class="recordings-inner">
+    <span class="section-label reveal"><span data-en="Media" data-de="Medien">Media</span></span>
+    <h2 class="section-title reveal"><span data-en="Listen &amp; Watch" data-de="Hören &amp; Sehen">Listen &amp;<br>Watch</span></h2>
+    <div class="gold-line reveal"></div>
+
+    <!-- COMMERCIAL RECORDINGS -->
+        <!-- VIDEO -->
+    <div class="media-block reveal">
+      <h3 class="media-block-title"><span data-en="Audio" data-de="Audio">Audio</span></h3>
+      <div class="standalone-track">
+        <div class="track-info">
+          <span class="track-label"><span data-en="Featured Recording" data-de="Aufnahme">Featured Recording</span></span>
+          <h4 class="track-title">Tansman, Suite for Bassoon and Piano</h4>
+          <p class="track-performer">Marisa Esposito, bassoon</p>
+        </div>
+        <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
+          src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/marisa-esposito-830399855/marisa-esposito-tansman&color=%23b08d57&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false">
+        </iframe>
+      </div>
+      <div class="standalone-track" style="margin-top: 12px;">
+        <div class="track-info">
+          <span class="track-label"><span data-en="Featured Recording" data-de="Aufnahme">Featured Recording</span></span>
+          <h4 class="track-title">Mignone, Improvised Waltz</h4>
+          <p class="track-performer">Marisa Esposito, bassoon</p>
+        </div>
+        <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
+          src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/marisa-esposito-830399855/0414-2&color=%23b08d57&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false">
+        </iframe>
+      </div>
+    </div>
+
+    <div class="media-block reveal">
+      <h3 class="media-block-title"><span data-en="Video" data-de="Video">Video</span></h3>
+      <div class="video-grid">
+
+        <div class="video-card">
+          <div class="video-embed-wrap">
+            <iframe src="https://www.youtube.com/embed/5aJd_eiyl94?si=yfpgp_8z3GB8TtAK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+          <p class="video-caption">Bertoni, Concerto in F major, I · Faculty Recital · Baldwin Wallace University · 2021</p>
+        </div>
+
+        <div class="video-card">
+          <div class="video-embed-wrap">
+            <iframe src="https://www.youtube.com/embed/C1OTxRzTeh8?si=s52GYfJEJgSM8j3-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+          <p class="video-caption">Vivaldi, Cello Sonata in B♭ major, RV 45 · Artist Diploma Recital · Cleveland Institute of Music · 2019</p>
+        </div>
+
+        <div class="video-card">
+          <div class="video-embed-wrap">
+            <iframe src="https://www.youtube.com/embed/MCoEdQ69_VY?si=n6GAzhuc16FRvHsO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+          <p class="video-caption">Schreck, Sonata · "Farewell Cleveland" Recital · 2021</p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="highlights">
+  <div class="highlights-inner">
+    <span class="section-label reveal"><span data-en="Career Highlights" data-de="Karriere-Höhepunkte">Career Highlights</span></span>
+    <h2 class="section-title reveal"><span data-en="On the World's Leading Stages" data-de="Auf den bedeutendsten Bühnen der Welt">On the World's<br>Leading Stages</span></h2>
+    <div class="gold-line reveal"></div>
+    <div class="highlights-grid">
+      <div class="highlight-card reveal">
+        <div class="highlight-icon">I</div>
+        <h3 class="highlight-title"><span data-en="Orchestral Career" data-de="Orchesterlaufbahn">Orchestral Career</span></h3>
+        <p class="highlight-text"><span data-en="As guest musician, Marisa has appeared with the Stuttgarter Philharmoniker, the Württembergische Philharmonie Reutlingen, the Deutsche Philharmonie Merck, the Erie Philharmonic, the Youngstown Symphony, and CityMusic Cleveland Chamber Orchestra, among others." data-de="Als Gastmusikerin war Marisa bei den Stuttgarter Philharmonikern, der Württembergischen Philharmonie Reutlingen, der Deutschen Philharmonie Merck, dem Erie Philharmonic, dem Youngstown Symphony und dem CityMusic Cleveland Chamber Orchestra zu Gast, unter anderem.">As guest musician, Marisa has appeared with the Stuttgarter Philharmoniker, the Württembergische Philharmonie Reutlingen, the Deutsche Philharmonie Merck, the Erie Philharmonic, the Youngstown Symphony, and CityMusic Cleveland Chamber Orchestra, among others.</span></p>
+      </div>
+      <div class="highlight-card reveal">
+        <div class="highlight-icon">II</div>
+        <h3 class="highlight-title"><span data-en="Competition Recognition" data-de="Wettbewerbserfolge">Competition Recognition</span></h3>
+        <p class="highlight-text"><span data-en="First Prize, Meg Quigley Vivaldi Competition, Los Angeles (2019). First Prize, National Repertory Orchestra Concerto Competition, Breckenridge, CO (2019). Second Prize and Special Prize for Best Artistic Creation, 13th Michał Spisak Competition, Poland (2021)." data-de="1. Preis, Meg Quigley Vivaldi Competition, Los Angeles (2019). 1. Preis, National Repertory Orchestra Concerto Competition, Breckenridge, CO (2019). 2. Preis und Sonderpreis für die beste künstlerische Gestaltung, 13. Michał-Spisak-Wettbewerb, Polen (2021).">First Prize, Meg Quigley Vivaldi Competition, Los Angeles (2019). First Prize, National Repertory Orchestra Concerto Competition, Breckenridge, CO (2019). Second Prize and Special Prize for Best Artistic Creation, 13th Michał Spisak Competition, Poland (2021).</span></p>
+      </div>
+      <div class="highlight-card reveal">
+        <div class="highlight-icon">III</div>
+        <h3 class="highlight-title"><span data-en="Teaching" data-de="Unterricht">Teaching</span></h3>
+        <p class="highlight-text"><span data-en="Marisa has held faculty appointments at Baldwin Wallace University and the State University of New York Fredonia, where she taught applied bassoon, reed making and pedagogy, influencing the next generation of bassoonists and music educators. Truly a teacher of all ages, she is also the founder of Music with Marisa, a free interactive music program for families with young children, established in 2017." data-de="Marisa hatte Lehraufträge an der Baldwin Wallace University und der SUNY Fredonia, wo sie Fagott und Rohrbau unterrichtete. Sie ist außerdem die Gründerin von Music with Marisa, einem kostenlosen interaktiven Musikprogramm für Familien mit Kleinkindern, das 2017 ins Leben gerufen wurde.">Marisa has held faculty appointments at Baldwin Wallace University and the State University of New York Fredonia, where she taught applied bassoon, reed making and pedagogy, influencing the next generation of bassoonists and music educators. Truly a teacher of all ages, she is also the founder of Music with Marisa, a free interactive music program for families with young children, established in 2017.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="gallery-inner">
+    <span class="section-label reveal"><span data-en="Gallery" data-de="Galerie">Gallery</span></span>
+    <h2 class="section-title reveal"><span data-en="On Stage" data-de="Auf der Bühne">On Stage</span></h2>
+    <div class="gold-line reveal"></div>
+    <div class="gallery-grid reveal">
+      <div class="gallery-item g-tall" onclick="openLightbox(0)">
+        <img src="images/gallery-01.jpg" alt="Award ceremony">
+        <div class="gallery-item-overlay"><span class="gallery-item-caption">Award ceremony</span></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(1)">
+        <img src="images/gallery-02.jpg" alt="Receiving the prize">
+        <div class="gallery-item-overlay"><span class="gallery-item-caption">Receiving the prize</span></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(4)">
+        <img src="images/gallery-05.jpg" alt="Competition performance">
+        <div class="gallery-item-overlay"><span class="gallery-item-caption">Competition performance</span></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(8)">
+        <img src="images/gallery-enescu-01.jpg" alt="Woodwinds · Enescu Festival">
+        <div class="gallery-item-overlay"><span class="gallery-item-caption">Würth Philharmoniker</span></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(5)">
+        <img src="images/gallery-06.jpg" alt="On stage with piano">
+        <div class="gallery-item-overlay"><span class="gallery-item-caption">On stage with piano</span></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(6)">
+        <img src="images/gallery-07.jpg" alt="Solo performance">
+        <div class="gallery-item-overlay"><span class="gallery-item-caption">Solo performance</span></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(9)">
+        <img src="images/gallery-enescu-02.jpg" alt="Full orchestra">
+        <div class="gallery-item-overlay"><span class="gallery-item-caption">Full orchestra</span></div>
+      </div>
+      <div class="gallery-item g-wide" onclick="openLightbox(2)">
+        <img src="images/gallery-03.jpg" alt="Laureates on stage">
+        <div class="gallery-item-overlay"><span class="gallery-item-caption">All laureates</span></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(3)">
+        <img src="images/gallery-04.jpg" alt="With fellow laureates">
+        <div class="gallery-item-overlay"><span class="gallery-item-caption">With fellow laureates</span></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(7)">
+        <img src="images/gallery-08.jpg" alt="Before the jury">
+        <div class="gallery-item-overlay"><span class="gallery-item-caption">Before the jury</span></div>
+      </div>
+      <div class="gallery-item g-wide" onclick="openLightbox(10)">
+        <img src="images/gallery-enescu-03.jpg" alt="Romanian Athenaeum">
+        <div class="gallery-item-overlay"><span class="gallery-item-caption">Romanian Athenaeum</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightboxOutside(event)">
+  <button class="lightbox-close" onclick="closeLightbox()">×</button>
+  <button class="lightbox-prev" onclick="event.stopPropagation(); changeLightbox(-1)">&#8249;</button>
+  <button class="lightbox-next" onclick="event.stopPropagation(); changeLightbox(1)">&#8250;</button>
+  <div class="lightbox-img-wrap">
+    <img id="lightbox-img" src="" alt="">
+  </div>
+  <div class="lightbox-caption" id="lightbox-caption"></div>
+</div>
+
+<section id="teaching">
+  <div class="teaching-grid reveal">
+    <div class="teaching-text">
+      <span class="section-label"><span data-en="Teaching" data-de="Unterricht">Teaching</span></span>
+      <h2 class="section-title"><span data-en="A Teacher of All Ages" data-de="Eine Lehrerin für alle Altersgruppen">A Teacher<br>of All Ages</span></h2>
+      <div class="gold-line"></div>
+      <p><span data-en="Marisa's artistic philosophy is rooted in the belief that one is never done learning, and that inspiration is found everywhere. Central to this is her conviction that music belongs to everybody, and that nurturing a relationship with music should begin as early as possible." data-de="Marisas künstlerische Philosophie gründet auf der Überzeugung, dass man nie aufhört zu lernen, und dass Inspiration überall zu finden ist. Im Mittelpunkt steht ihre Überzeugung, dass Musik allen gehört und dass eine Beziehung zur Musik so früh wie möglich gepflegt werden sollte.">Marisa's artistic philosophy is rooted in the belief that one is never done learning, and that inspiration is found everywhere. Central to this is her conviction that music belongs to everybody, and that nurturing a relationship with music should begin as early as possible.</span></p>
+      <p><span data-en="She has held faculty appointments at Baldwin Wallace University and the State University of New York at Fredonia, where she taught applied bassoon and reed making to the next generation of professional musicians." data-de="Sie hatte Lehraufträge an der Baldwin Wallace University und der State University of New York at Fredonia, wo sie angehenden Berufsmusikern Fagott und Rohrbau unterrichtete.">She has held faculty appointments at Baldwin Wallace University and the State University of New York at Fredonia, where she taught applied bassoon, reed making and pedagogy, influencing the next generation of bassoonists and music educators. She is also the founder of Music with Marisa, bringing her passion for music education to families and young children since 2017.</span></p>
+    </div>
+    <div class="music-with-marisa">
+      <span class="mwm-label"><span data-en="Community Program" data-de="Gemeinschaftsprogramm">Community Program</span></span>
+      <h3 class="mwm-title">Music with Marisa</h3>
+      <img src="images/mwm-photo.jpg" alt="Music with Marisa class" class="mwm-photo">
+      <p class="mwm-tagline"><span data-en="Shaping the next generation of musical beings." data-de="Die nächste Generation musikalischer Wesen formen.">Shaping the next generation of musical beings.</span></p>
+      <p class="mwm-text"><span data-en="Founded in 2017, Music with Marisa brings together families with young children and babies to sing, move, and make music together. At its heart is the belief that every person, child and parent alike, has the capacity to participate joyfully in music. This program exists to help them find and nurture that joy." data-de="Music with Marisa wurde 2017 gegründet und bringt Familien mit Kleinkindern und Babys zusammen, um gemeinsam zu singen, sich zu bewegen und Musik zu erleben. Im Mittelpunkt steht die Überzeugung, dass jeder Mensch – Kind wie Elternteil – die Fähigkeit in sich trägt, freudig an Musik teilzunehmen. Dieses Programm hilft ihnen, diese Freude zu finden und zu pflegen.">Founded in 2017, Music with Marisa brings together families with young children and babies to sing, move, and make music together. At its heart is the belief that every person, child and parent alike, has the capacity to participate joyfully in music. This program exists to help them find and nurture that joy.</span></p>
+      <p class="mwm-text"><span data-en="By reconnecting parents with their own musicality, and reminding them how naturally it comes to all humans (even if we've lost it along the way) Marisa's classes create a ripple effect that shapes not just children, but whole families. She believes that our shared human experience, of which music is an integral part, should help to shape communities and society. This is the change she hopes to contribute to in the world. Music is not a performance. It's a community." data-de="Indem Marisa Eltern wieder mit ihrer eigenen Musikalität verbindet und ihnen zeigt, wie natürlich sie allen Menschen eigen ist (auch wenn wir sie manchmal verloren haben), entsteht ein Welleneffekt, der nicht nur Kinder, sondern ganze Familien prägt. Sie glaubt, dass unsere gemeinsame menschliche Erfahrung, zu der Musik gehört, Gemeinschaften und die Gesellschaft formen sollte. Das ist der Wandel, den sie zur Welt beitragen möchte. Musik ist keine Darbietung. Sie ist Gemeinschaft.">By reconnecting parents with their own musicality, and reminding them how naturally it comes to all humans (even if we've lost it along the way) Marisa's classes create a ripple effect that shapes not just children, but whole families. She believes that our shared human experience, of which music is an integral part, should help to shape communities and society. This is the change she hopes to contribute to in the world. Music is not a performance. It's a community.</span></p>
+      <span class="mwm-badge"><span data-en="Offered Free of Charge" data-de="Kostenlos angeboten">Offered Free of Charge</span></span>
+      <a href="https://www.eventbrite.com/e/music-with-marisa-registration-103955678232?aff=ebdsoporgprofile" target="_blank" class="mwm-signup">
+        <span data-en="Sign Up for a Class ↗" data-de="Zur Klasse anmelden ↗">Sign Up for a Class ↗</span>
+      </a>
+      <div class="mwm-host">
+        <span class="mwm-host-label"><span data-en="Hosted by" data-de="Veranstalter">Hosted by</span></span>
+        <a href="https://familyconnectionsneo.org/family-program/music-with-marisa/" target="_blank" class="mwm-host-link">Family Connections of Northeast Ohio ↗</a>
+        <p class="mwm-host-desc"><span data-en="A 501(c)(3) nonprofit dedicated to building strong families and strong communities." data-de="Eine gemeinnützige 501(c)(3)-Organisation, die sich dem Aufbau starker Familien und starker Gemeinschaften widmet.">A 501(c)(3) nonprofit dedicated to building strong families and strong communities.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="press">
+  <div class="press-inner">
+    <span class="section-label reveal"><span data-en="Press" data-de="Presse">Press</span></span>
+    <h2 class="section-title reveal"><span data-en="In the News" data-de="In den Medien">In the News</span></h2>
+    <div class="gold-line reveal"></div>
+    <div class="press-grid">
+      <a href="http://www.observertoday.com/life/entertainment/2019/03/alumna-bassoonist-wins-prestigious-competition/" target="_blank" class="press-card reveal">
+        <div class="press-card-top">
+          <span class="press-outlet">Observer Today</span>
+          <span class="press-date">March 2019</span>
+        </div>
+        <h3 class="press-headline"><span data-en="&quot;Alumna bassoonist wins prestigious competition&quot;" data-de="&quot;Absolventin gewinnt renommierten Wettbewerb&quot;">"Alumna bassoonist wins prestigious competition"</span></h3>
+        <p class="press-excerpt"><span data-en="SUNY Fredonia alumna Marisa Esposito won the prestigious 2019 Meg Quigley Vivaldi Competition, held at The Colburn School in Los Angeles, one of the most celebrated competitions for women bassoonists in the Americas." data-de="Die SUNY-Fredonia-Absolventin Marisa Esposito gewann den renommierten Meg Quigley Vivaldi Competition 2019 an der Colburn School in Los Angeles – einen der angesehensten Wettbewerbe für Fagottistinnen auf dem amerikanischen Kontinent.">SUNY Fredonia alumna Marisa Esposito won the prestigious 2019 Meg Quigley Vivaldi Competition, held at The Colburn School in Los Angeles, one of the most celebrated competitions for women bassoonists in the Americas.</span></p>
+        <span class="press-read-more"><span data-en="Read article ↗" data-de="Artikel lesen ↗">Read article ↗</span></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="contact-inner">
+    <div>
+      <span class="section-label reveal"><span data-en="Contact" data-de="Kontakt">Contact</span></span>
+      <h2 class="section-title reveal"><span data-en="Get in Touch" data-de="Kontakt aufnehmen">Get in Touch</span></h2>
+      <div class="gold-line reveal"></div>
+      <p class="contact-text reveal"><span data-en="For orchestral engagements, solo appearances, masterclasses, or teaching inquiries, please reach out using the form or contact directly." data-de="Für Orchesterengagements, Soloauftritte, Meisterkurse oder Unterrichtsanfragen nehmen Sie bitte über das Formular oder direkt Kontakt auf.">For orchestral engagements, solo appearances, masterclasses, or teaching inquiries, please reach out using the form or contact directly.</span></p>
+      <div class="contact-details reveal">
+        <div class="contact-item">
+          <span class="contact-item-label"><span data-en="Based in" data-de="Wohnort">Based in</span></span>
+          <span class="contact-item-value">Baden-Württemberg, Germany</span>
+        </div>
+        <div class="contact-item">
+          <span class="contact-item-label"><span data-en="Orchestra" data-de="Orchester">Orchestra</span></span>
+          <span class="contact-item-value">Würth Philharmoniker</span>
+        </div>
+      </div>
+    </div>
+    <div class="contact-form reveal">
+      <div class="form-field">
+        <label><span data-en="Name" data-de="Name">Name</span></label>
+        <input type="text" placeholder="Your name">
+      </div>
+      <div class="form-field">
+        <label><span data-en="Email" data-de="E-Mail">Email</span></label>
+        <input type="email" placeholder="your@email.com">
+      </div>
+      <div class="form-field">
+        <label><span data-en="Subject" data-de="Betreff">Subject</span></label>
+        <input type="text" placeholder="Booking inquiry, masterclass, etc.">
+      </div>
+      <div class="form-field">
+        <label><span data-en="Message" data-de="Nachricht">Message</span></label>
+        <textarea placeholder="Tell me about your project or inquiry..."></textarea>
+      </div>
+      <button class="form-submit"><span data-en="Send Message" data-de="Nachricht senden">Send Message</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-name">Marisa Esposito</span>
+  <a href="https://www.instagram.com/the.real.marisa.espo/" target="_blank" class="footer-instagram">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+    @the.real.marisa.espo
+  </a>
+  <span class="footer-copy">© 2026 Marisa Esposito · <span data-en="Bassoonist" data-de="Fagottistin">Bassoonist</span></span>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Nav scroll effect
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    if (window.scrollY > 50) {
+      nav.style.padding = '16px 60px';
+      nav.style.boxShadow = '0 2px 20px rgba(26,26,24,0.08)';
+    } else {
+      nav.style.padding = '28px 60px';
+      nav.style.boxShadow = 'none';
+    }
+  });
+</script>
+
+<script>
+const galleryImages = [
+  { src: "images/gallery-01.jpg", caption: "Award ceremony · 13th Michał Spisak Competition · 2021" },
+  { src: "images/gallery-02.jpg", caption: "Receiving the prize · 13th Michał Spisak Competition · 2021" },
+  { src: "images/gallery-03.jpg", caption: "Laureates on stage · 13th Michał Spisak Competition · 2021" },
+  { src: "images/gallery-04.jpg", caption: "With fellow laureates · 13th Michał Spisak Competition · 2021" },
+  { src: "images/gallery-05.jpg", caption: "Competition performance · 13th Michał Spisak Competition · 2021" },
+  { src: "images/gallery-06.jpg", caption: "On stage with piano · 13th Michał Spisak Competition · 2021" },
+  { src: "images/gallery-07.jpg", caption: "Solo performance · 13th Michał Spisak Competition · 2021" },
+  { src: "images/gallery-08.jpg", caption: "Before the jury · 13th Michał Spisak Competition · 2021" },
+  { src: "images/gallery-enescu-01.jpg", caption: "Würth Philharmoniker · woodwinds · George Enescu Festival, Bucharest · 2023" },
+  { src: "images/gallery-enescu-02.jpg", caption: "Würth Philharmoniker on stage · George Enescu Festival, Bucharest · 2023" },
+  { src: "images/gallery-enescu-03.jpg", caption: "Romanian Athenaeum · George Enescu Festival · 2023" },
+];
+let currentLightboxIndex = 0;
+
+function openLightbox(index) {
+  currentLightboxIndex = index;
+  document.getElementById('lightbox-img').src = galleryImages[index].src;
+  document.getElementById('lightbox-caption').textContent = galleryImages[index].caption;
+  document.getElementById('lightbox').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+function closeLightboxOutside(e) {
+  if (e.target === document.getElementById('lightbox')) closeLightbox();
+}
+
+function changeLightbox(dir) {
+  currentLightboxIndex = (currentLightboxIndex + dir + galleryImages.length) % galleryImages.length;
+  document.getElementById('lightbox-img').src = galleryImages[currentLightboxIndex].src;
+  document.getElementById('lightbox-caption').textContent = galleryImages[currentLightboxIndex].caption;
+}
+
+document.addEventListener('keydown', (e) => {
+  if (!document.getElementById('lightbox').classList.contains('active')) return;
+  if (e.key === 'ArrowLeft') changeLightbox(-1);
+  if (e.key === 'ArrowRight') changeLightbox(1);
+  if (e.key === 'Escape') closeLightbox();
+});
+</script>
